@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Navbar from "./components/Navbar"
 
 const slides = [
@@ -30,7 +30,6 @@ const categories = [
 const brands = ["Nike", "Adidas", "Jordan", "New Balance", "Puma", "Reebok", "Asics", "Vans"]
 
 export default function Home() {
-  const [current, setCurrent] = useState(0)
   const [email, setEmail] = useState("")
 
   return (
@@ -42,7 +41,8 @@ export default function Home() {
         <section style={{
           width: "100%", minHeight: "90vh",
           position: "relative", overflow: "hidden",
-          display: "flex", alignItems: "flex-end"
+          display: "flex", alignItems: "center",
+          justifyContent: "center"
         }}>
           <img
             src="/hero.sneakers.png"
@@ -50,14 +50,19 @@ export default function Home() {
             style={{
               position: "absolute", inset: 0,
               width: "100%", height: "100%",
-              objectFit: "cover", objectPosition: "center"
+              objectFit: "cover", objectPosition: "top center"
             }}
           />
           <div style={{
             position: "absolute", inset: 0,
-            background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%)"
+            background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%)"
           }} />
-          <div className="hero-content" style={{ padding: "60px 48px", zIndex: 2, width: "100%" }}>
+          <div className="hero-content" style={{
+            padding: "60px 48px", zIndex: 2, width: "100%",
+            display: "flex", flexDirection: "column",
+            alignItems: "center", textAlign: "center",
+            justifyContent: "center"
+          }}>
             <p style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: "0.8rem", fontWeight: 600,
@@ -75,16 +80,14 @@ export default function Home() {
               fontSize: "1rem", color: "rgba(255,255,255,0.8)",
               maxWidth: "400px", lineHeight: 1.6, marginBottom: "40px"
             }}>{slides[0].sub}</p>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <a href="/catalogue" style={{
-                background: "#fff", color: "#0a0a0a",
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 700, fontSize: "0.9rem",
-                letterSpacing: "0.12em", textTransform: "uppercase",
-                padding: "16px 36px", borderRadius: "30px",
-                textDecoration: "none"
-              }}>Voir la collection</a>
-            </div>
+            <a href="/catalogue" style={{
+              background: "#fff", color: "#0a0a0a",
+              fontFamily: "'Barlow Condensed', sans-serif",
+              fontWeight: 700, fontSize: "0.9rem",
+              letterSpacing: "0.12em", textTransform: "uppercase",
+              padding: "16px 36px", borderRadius: "30px",
+              textDecoration: "none"
+            }}>Voir la collection</a>
           </div>
         </section>
 
