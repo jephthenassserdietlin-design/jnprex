@@ -47,10 +47,11 @@ export default function Home() {
           <img
             src="/hero.sneakers.png"
             alt="JNPREX Sneakers"
+            className="hero-img"
             style={{
               position: "absolute", inset: 0,
               width: "100%", height: "100%",
-              objectFit: "cover", objectPosition: "top center"
+              objectFit: "cover"
             }}
           />
           <div style={{
@@ -349,7 +350,7 @@ export default function Home() {
               }}>{link}</a>
             ))}
           </div>
-          <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.3)" }}>
+          <span style={{ fontSize: "0.72zm", color: "rgba(255,255,255,0.3)" }}>
             © 2025 JNPREX. Tous droits réservés.
           </span>
         </footer>
