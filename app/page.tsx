@@ -6,7 +6,7 @@ const slides = [
   {
     eyebrow: "Sneakers",
     title: "ENTRE\nDANS\nLE JEU",
-    sub: "Les icônes d'aujourd'hui. Les classiques de demain.",
+    sub: "Les icônes d'aujourd'hui.",
   },
 ]
 
@@ -353,7 +353,7 @@ export default function Home() {
             ))}
           </div>
           <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.3)" }}>
-            © 2025 JNPREX. Tous droits réservés.
+            © 2026 JNPREX. Tous droits réservés.
           </span>
         </footer>
 
