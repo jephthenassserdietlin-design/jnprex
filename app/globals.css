@@ -29,7 +29,7 @@ body {
 
 /* Desktop */
 .hero-img {
-  object-position: 70% center !important;
+  object-position: 60% center !important;
 }
 
 @media (max-width: 768px) {

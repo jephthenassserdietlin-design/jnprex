@@ -42,7 +42,6 @@ export default function Home() {
           width: "100%", minHeight: "90vh",
           position: "relative", overflow: "hidden",
           display: "flex", alignItems: "center",
-          justifyContent: "center"
         }}>
           <img
             src="/hero.sneakers.png"
@@ -61,8 +60,7 @@ export default function Home() {
           <div className="hero-content" style={{
             padding: "60px 48px", zIndex: 2, width: "100%",
             display: "flex", flexDirection: "column",
-            alignItems: "center", textAlign: "center",
-            justifyContent: "center"
+            alignItems: "flex-start", textAlign: "left",
           }}>
             <p style={{
               fontFamily: "'Barlow Condensed', sans-serif",
@@ -81,14 +79,18 @@ export default function Home() {
               fontSize: "1rem", color: "rgba(255,255,255,0.8)",
               maxWidth: "400px", lineHeight: 1.6, marginBottom: "40px"
             }}>{slides[0].sub}</p>
-            <a href="/catalogue" style={{
-              background: "#fff", color: "#0a0a0a",
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontWeight: 700, fontSize: "0.9rem",
-              letterSpacing: "0.12em", textTransform: "uppercase",
-              padding: "16px 36px", borderRadius: "30px",
-              textDecoration: "none"
-            }}>Voir la collection</a>
+
+            {/* Bouton centré */}
+            <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+              <a href="/catalogue" style={{
+                background: "#fff", color: "#0a0a0a",
+                fontFamily: "'Barlow Condensed', sans-serif",
+                fontWeight: 700, fontSize: "0.9rem",
+                letterSpacing: "0.12em", textTransform: "uppercase",
+                padding: "16px 36px", borderRadius: "30px",
+                textDecoration: "none"
+              }}>Voir la collection</a>
+            </div>
           </div>
         </section>
 
@@ -350,7 +352,7 @@ export default function Home() {
               }}>{link}</a>
             ))}
           </div>
-          <span style={{ fontSize: "0.72zm", color: "rgba(255,255,255,0.3)" }}>
+          <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.3)" }}>
             © 2025 JNPREX. Tous droits réservés.
           </span>
         </footer>
