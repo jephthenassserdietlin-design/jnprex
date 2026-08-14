@@ -27,8 +27,9 @@ body {
 
 .mobile-only { display: none !important; }
 
+/* Desktop */
 .hero-img {
-  object-position: center !important;
+  object-position: 70% center !important;
 }
 
 @media (max-width: 768px) {
@@ -46,7 +47,9 @@ body {
   .footer-links { justify-content: center !important; flex-wrap: wrap !important; gap: 16px !important; }
   .section-pad { padding: 40px 16px !important; }
   .brands-row { gap: 24px !important; padding: 40px 16px !important; }
-  .hero-img {object-position: 65% center !important;}
+
+  /* Mobile */
+  .hero-img { object-position: top 40% !important; }
 }
 
 @keyframes ticker {
