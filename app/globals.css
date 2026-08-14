@@ -46,7 +46,7 @@ body {
   .footer-links { justify-content: center !important; flex-wrap: wrap !important; gap: 16px !important; }
   .section-pad { padding: 40px 16px !important; }
   .brands-row { gap: 24px !important; padding: 40px 16px !important; }
-  .hero-img { object-position: top 60% !important; }
+  .hero-img { object-position: top 30% !important; }
 }
 
 @keyframes ticker {
