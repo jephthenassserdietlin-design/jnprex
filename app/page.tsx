@@ -4,22 +4,9 @@ import Navbar from "./components/Navbar"
 
 const slides = [
   {
-    eyebrow: "Nouvelle collection — 2025",
-    title: "Wear\nthe\nEdge",
-    sub: "Sneakers, vêtements et accessoires pour ceux qui ne se contentent pas du standard.",
-    bg: "#0a0a0a"
-  },
-  {
-    eyebrow: "Exclusivité JNPREX",
-    title: "Drop\nLimited",
-    sub: "Des pièces rares, sélectionnées pour les vrais connaisseurs.",
-    bg: "#111"
-  },
-  {
-    eyebrow: "Été 2025",
-    title: "Stay\nFresh",
-    sub: "Les nouveaux coloris de la saison sont arrivés.",
-    bg: "#1a1a1a"
+    eyebrow: "Sneakers",
+    title: "ENTRE\nDANS\nLE JEU",
+    sub: "Les icônes d'aujourd'hui. Les classiques de demain.",
   },
 ]
 
@@ -46,15 +33,6 @@ export default function Home() {
   const [current, setCurrent] = useState(0)
   const [email, setEmail] = useState("")
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % slides.length)
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const slide = slides[current]
-
   return (
     <>
       <Navbar />
@@ -63,29 +41,40 @@ export default function Home() {
         {/* ── HERO ── */}
         <section style={{
           width: "100%", minHeight: "90vh",
-          background: slide.bg,
-          display: "flex", alignItems: "flex-end",
           position: "relative", overflow: "hidden",
-          transition: "background 0.8s"
+          display: "flex", alignItems: "flex-end"
         }}>
+          <img
+            src="/hero.sneakers.png"
+            alt="JNPREX Sneakers"
+            style={{
+              position: "absolute", inset: 0,
+              width: "100%", height: "100%",
+              objectFit: "cover", objectPosition: "center"
+            }}
+          />
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%)"
+          }} />
           <div className="hero-content" style={{ padding: "60px 48px", zIndex: 2, width: "100%" }}>
             <p style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: "0.8rem", fontWeight: 600,
               letterSpacing: "0.25em", textTransform: "uppercase",
-              color: "rgba(255,255,255,0.5)", marginBottom: "16px"
-            }}>{slide.eyebrow}</p>
+              color: "rgba(255,255,255,0.7)", marginBottom: "16px"
+            }}>{slides[0].eyebrow}</p>
             <h1 style={{
               fontFamily: "'Barlow Condensed', sans-serif",
-              fontWeight: 900, fontSize: "clamp(4rem, 10vw, 8rem)",
+              fontWeight: 900, fontSize: "clamp(3rem, 8vw, 7rem)",
               textTransform: "uppercase", color: "#fff",
-              lineHeight: 0.9, marginBottom: "24px",
+              lineHeight: 0.95, marginBottom: "24px",
               whiteSpace: "pre-line"
-            }}>{slide.title}</h1>
+            }}>{slides[0].title}</h1>
             <p style={{
-              fontSize: "1rem", color: "rgba(255,255,255,0.6)",
+              fontSize: "1rem", color: "rgba(255,255,255,0.8)",
               maxWidth: "400px", lineHeight: 1.6, marginBottom: "40px"
-            }}>{slide.sub}</p>
+            }}>{slides[0].sub}</p>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <a href="/catalogue" style={{
                 background: "#fff", color: "#0a0a0a",
@@ -95,16 +84,6 @@ export default function Home() {
                 padding: "16px 36px", borderRadius: "30px",
                 textDecoration: "none"
               }}>Voir la collection</a>
-            </div>
-            <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginTop: "32px" }}>
-              {slides.map((_, i) => (
-                <button key={i} onClick={() => setCurrent(i)} style={{
-                  width: i === current ? "24px" : "8px",
-                  height: "8px", borderRadius: "4px",
-                  background: i === current ? "#fff" : "rgba(255,255,255,0.3)",
-                  border: "none", cursor: "pointer", transition: "all 0.3s"
-                }} />
-              ))}
             </div>
           </div>
         </section>
