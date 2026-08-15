@@ -192,8 +192,16 @@ export default function Navbar() {
           position: "fixed", top: "112px", left: 0, right: 0,
           background: "#fff", zIndex: 99,
           borderBottom: "1px solid #efefef",
-          padding: "24px 20px"
+          padding: "24px 20px",
+          position: "fixed" as const
         }}>
+          {/* Bouton fermer */}
+          <button onClick={() => setMenuOpen(false)} style={{
+            position: "absolute", top: "16px", right: "20px",
+            background: "none", border: "none", cursor: "pointer",
+            fontSize: "1.4rem", color: "#0a0a0a", lineHeight: 1
+          }}>✕</button>
+
           {[
             { label: "Sneakers", href: "/catalogue" },
             { label: "Sacs", href: "#" },
@@ -214,4 +222,4 @@ export default function Navbar() {
       )}
     </>
   )
-} 
+}
