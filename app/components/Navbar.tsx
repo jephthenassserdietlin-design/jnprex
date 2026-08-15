@@ -32,7 +32,7 @@ export default function Navbar() {
             letterSpacing: "0.12em", textTransform: "uppercase",
             color: "#0a0a0a", textDecoration: "none"
           }}>JNPREX</a>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
             <button style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" strokeWidth="1.6">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -106,7 +106,7 @@ export default function Navbar() {
           height: "46px", borderTop: "1px solid #efefef"
         }}>
           {["Sneakers", "Sacs", "Accessoires", "Vêtements", "Sports"].map((cat) => (
-            <a key={cat} href="#"
+            <a key={cat} href={cat === "Sneakers" ? "/catalogue" : "#"}
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontWeight: 700, fontSize: "0.85rem",
@@ -211,15 +211,21 @@ export default function Navbar() {
           borderBottom: "1px solid #efefef",
           padding: "24px 20px"
         }}>
-          {["Sneakers", "Sacs", "Accessoires", "Vêtements", "Sports"].map(link => (
-            <a key={link} href="#" style={{
+          {[
+            { label: "Sneakers", href: "/catalogue" },
+            { label: "Sacs", href: "#" },
+            { label: "Accessoires", href: "#" },
+            { label: "Vêtements", href: "#" },
+            { label: "Sports", href: "#" },
+          ].map(link => (
+            <a key={link.label} href={link.href} style={{
               display: "block", padding: "14px 0",
               fontFamily: "'Barlow Condensed', sans-serif",
               fontWeight: 700, fontSize: "1.6rem",
               letterSpacing: "0.08em", textTransform: "uppercase",
               color: "#0a0a0a", textDecoration: "none",
               borderBottom: "1px solid #f0f0f0"
-            }}>{link}</a>
+            }}>{link.label}</a>
           ))}
         </div>
       )}

@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import Navbar from "../components/Navbar"
 
 const brands = [
@@ -10,9 +11,14 @@ const brands = [
 
 const products = [
   { brand: "Nike", name: "Air Max 97 OG", price: "189 €", tag: "New" },
+  { brand: "Nike", name: "Air Force 1", price: "110 €", tag: "" },
+  { brand: "Nike", name: "Dunk Low", price: "120 €", tag: "Hot" },
   { brand: "Adidas", name: "Yeezy 350 V2", price: "245 €", oldPrice: "320 €", tag: "Hot" },
+  { brand: "Adidas", name: "Samba OG", price: "100 €", tag: "New" },
   { brand: "New Balance", name: "990v5 Made USA", price: "220 €", tag: "" },
+  { brand: "New Balance", name: "574 Core", price: "89 €", tag: "" },
   { brand: "Jordan", name: "Air Jordan 1 Retro", price: "165 €", oldPrice: "210 €", tag: "Sale" },
+  { brand: "Jordan", name: "Air Jordan 4", price: "210 €", tag: "" },
   { brand: "Puma", name: "Suede Classic XXI", price: "95 €", tag: "New" },
   { brand: "Asics", name: "Gel-Kayano 14", price: "130 €", tag: "" },
   { brand: "Reebok", name: "Club C 85", price: "89 €", oldPrice: "110 €", tag: "Sale" },
@@ -21,9 +27,18 @@ const products = [
   { brand: "Salomon", name: "XT-6", price: "165 €", tag: "" },
   { brand: "Timberland", name: "6-Inch Premium", price: "210 €", tag: "" },
   { brand: "Saucony", name: "Jazz Original", price: "95 €", oldPrice: "120 €", tag: "Sale" },
+  { brand: "On", name: "Cloud 5", price: "145 €", tag: "New" },
+  { brand: "Golden Goose", name: "Superstar", price: "450 €", tag: "" },
+  { brand: "Off-White", name: "Out Of Office", price: "380 €", tag: "" },
 ]
 
 export default function Catalogue() {
+  const [selectedBrand, setSelectedBrand] = useState("Toutes")
+
+  const filteredProducts = selectedBrand === "Toutes"
+    ? products
+    : products.filter(p => p.brand === selectedBrand)
+
   return (
     <>
       <Navbar />
@@ -55,51 +70,59 @@ export default function Catalogue() {
           overflowX: "auto",
           flexWrap: "nowrap",
         }}>
-          <button style={{
-            background: "#0a0a0a", color: "#fff",
-            fontFamily: "'Barlow Condensed', sans-serif",
-            fontWeight: 700, fontSize: "0.78rem",
-            letterSpacing: "0.1em", textTransform: "uppercase",
-            padding: "6px 16px", borderRadius: "30px",
-            border: "none", cursor: "pointer",
-            whiteSpace: "nowrap" as const
-          }}>Toutes</button>
-          {brands.map(brand => (
-            <button key={brand} style={{
-              background: "transparent", color: "#0a0a0a",
+          <button
+            onClick={() => setSelectedBrand("Toutes")}
+            style={{
+              background: selectedBrand === "Toutes" ? "#0a0a0a" : "transparent",
+              color: selectedBrand === "Toutes" ? "#fff" : "#0a0a0a",
               fontFamily: "'Barlow Condensed', sans-serif",
               fontWeight: 700, fontSize: "0.78rem",
               letterSpacing: "0.1em", textTransform: "uppercase",
               padding: "6px 16px", borderRadius: "30px",
-              border: "1px solid #e8e8e6", cursor: "pointer",
-              whiteSpace: "nowrap" as const
-            }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "#0a0a0a"
-              ;(e.target as HTMLElement).style.color = "#fff"
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent"
-              ;(e.target as HTMLElement).style.color = "#0a0a0a"
-            }}
+              border: selectedBrand === "Toutes" ? "none" : "1px solid #e8e8e6",
+              cursor: "pointer", whiteSpace: "nowrap" as const
+            }}>Toutes</button>
+          {brands.map(brand => (
+            <button
+              key={brand}
+              onClick={() => setSelectedBrand(brand)}
+              style={{
+                background: selectedBrand === brand ? "#0a0a0a" : "transparent",
+                color: selectedBrand === brand ? "#fff" : "#0a0a0a",
+                fontFamily: "'Barlow Condensed', sans-serif",
+                fontWeight: 700, fontSize: "0.78rem",
+                letterSpacing: "0.1em", textTransform: "uppercase",
+                padding: "6px 16px", borderRadius: "30px",
+                border: selectedBrand === brand ? "none" : "1px solid #e8e8e6",
+                cursor: "pointer", whiteSpace: "nowrap" as const
+              }}
             >{brand}</button>
           ))}
         </div>
 
+        {/* ── TITRE MARQUE SÉLECTIONNÉE ── */}
+        <div style={{ padding: "24px 48px 0" }}>
+          <h2 style={{
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+            textTransform: "uppercase", color: "#0a0a0a"
+          }}>{selectedBrand === "Toutes" ? "Tous les produits" : selectedBrand}</h2>
+        </div>
+
         {/* ── GRILLE PRODUITS ── */}
-        <section style={{ padding: "40px 48px" }}>
+        <section style={{ padding: "16px 48px 64px" }}>
           <p style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontSize: "0.82rem", color: "#999",
             letterSpacing: "0.08em", marginBottom: "24px"
-          }}>{products.length} produits</p>
+          }}>{filteredProducts.length} produits</p>
           <div className="products-grid" style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px", background: "#e8e8e6"
           }}>
-            {products.map((product) => (
-              <div key={product.name}
+            {filteredProducts.map((product, index) => (
+              <div key={index}
                 style={{ background: "#fff", cursor: "pointer", overflow: "hidden" }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.9"}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
