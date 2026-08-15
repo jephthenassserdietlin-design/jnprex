@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import Image from "next/image"
+import SearchBar from "./SearchBar"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -68,16 +69,7 @@ export default function Navbar() {
           padding: "10px 48px 10px 28px",
           borderTop: "1px solid #efefef"
         }}>
-          <div style={{
-            display: "flex", alignItems: "center", gap: "10px",
-            background: "#f2f2f2", borderRadius: "30px",
-            padding: "11px 22px", cursor: "pointer", width: "42%"
-          }}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: "0.88rem", color: "#999" }}>Rechercher un produit...</span>
-          </div>
+          <SearchBar />
           <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
             <a href="#" style={{
               fontFamily: "'Barlow Condensed', sans-serif",
@@ -190,16 +182,7 @@ export default function Navbar() {
 
         {/* Rangée 2 - Barre recherche */}
         <div style={{ padding: "8px 16px 12px" }}>
-          <div style={{
-            display: "flex", alignItems: "center", gap: "10px",
-            background: "#f2f2f2", borderRadius: "30px",
-            padding: "10px 18px", cursor: "pointer"
-          }}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: "0.88rem", color: "#999" }}>Rechercher un produit...</span>
-          </div>
+          <SearchBar mobile={true} placeholder="Rechercher un produit..." />
         </div>
       </header>
 
@@ -231,4 +214,4 @@ export default function Navbar() {
       )}
     </>
   )
-}
+} 
