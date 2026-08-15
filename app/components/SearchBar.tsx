@@ -90,7 +90,8 @@ export default function SearchBar({ placeholder = "Rechercher un produit...", mo
           style={{
             background: "none", border: "none", outline: "none",
             fontFamily: "'Barlow', sans-serif",
-            fontSize: "0.88rem", color: "#333",
+            fontSize: "16px",
+            color: "#333",
             width: "100%"
           }}
         />
