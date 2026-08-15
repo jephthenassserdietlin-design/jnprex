@@ -6,7 +6,7 @@ const slides = [
   {
     eyebrow: "Sneakers",
     title: "ENTRE\nDANS\nLE JEU",
-    sub: "Les icônes d'aujourd'hui.",
+    sub: "Les icônes d'aujourd'hui. Les classiques de demain.",
   },
 ]
 
@@ -27,7 +27,12 @@ const categories = [
   { name: "Accessoires", label: "Finish", count: "80+ refs" },
 ]
 
-const brands = ["Nike", "Adidas", "Jordan", "New Balance", "Puma", "Reebok", "Asics", "Vans"]
+const brands = [
+  "Nike", "Adidas", "New Balance", "Puma", "Converse",
+  "Vans", "Asics", "Salomon", "Timberland", "Saucony",
+  "UGG", "Birkenstock", "Golden Goose", "Off-White",
+  "BAPE", "Reebok", "On"
+]
 
 export default function Home() {
   const [email, setEmail] = useState("")
@@ -79,8 +84,6 @@ export default function Home() {
               fontSize: "1rem", color: "rgba(255,255,255,0.8)",
               maxWidth: "400px", lineHeight: 1.6, marginBottom: "40px"
             }}>{slides[0].sub}</p>
-
-            {/* Bouton centré */}
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
               <a href="/catalogue" style={{
                 background: "#fff", color: "#0a0a0a",
@@ -262,13 +265,13 @@ export default function Home() {
           }}>Marques disponibles</p>
           <div style={{
             display: "flex", alignItems: "center",
-            justifyContent: "center", gap: "48px", flexWrap: "wrap"
+            justifyContent: "center", gap: "32px", flexWrap: "wrap"
           }}>
             {brands.map(brand => (
               <span key={brand} style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontWeight: 900,
-                fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
+                fontSize: "clamp(1rem, 2vw, 1.6rem)",
                 letterSpacing: "0.06em", textTransform: "uppercase",
                 color: "#e8e8e6", cursor: "pointer", transition: "color 0.2s"
               }}
