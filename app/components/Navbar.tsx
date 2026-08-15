@@ -192,8 +192,7 @@ export default function Navbar() {
           position: "fixed", top: "112px", left: 0, right: 0,
           background: "#fff", zIndex: 99,
           borderBottom: "1px solid #efefef",
-          padding: "24px 20px",
-          position: "fixed" as const
+          padding: "24px 20px"
         }}>
           {/* Bouton fermer */}
           <button onClick={() => setMenuOpen(false)} style={{
